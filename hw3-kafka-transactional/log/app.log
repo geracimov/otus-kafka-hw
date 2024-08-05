@@ -1,0 +1,50 @@
+00:07:12.135 [main] INFO  r.g.o.k.h.KafkaTransactionalApp MDC= - PRODUCING RECORDS
+00:07:12.352 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] subscribe to topics [topic1, topic2]
+00:07:12.352 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] subscribe to topics [topic1, topic2]
+00:07:17.422 [kotlinx.coroutines.DefaultExecutor] INFO  r.g.o.k.hw3transactional.Producer MDC= - [CommitTransactionalProducer] begin transaction
+00:07:17.570 [kotlinx.coroutines.DefaultExecutor] INFO  r.g.o.k.hw3transactional.Producer MDC= - [CommitTransactionalProducer] send records
+00:07:17.607 [kotlinx.coroutines.DefaultExecutor] INFO  r.g.o.k.hw3transactional.Producer MDC= - [CommitTransactionalProducer] commiting transaction
+00:07:17.669 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic1 part=1 offset=12
+00:07:17.670 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic2 part=1 offset=12
+00:07:17.670 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic2 part=3 offset=16
+00:07:17.670 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic1 part=2 offset=12
+00:07:17.670 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic1 part=2 offset=13
+00:07:17.670 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic1 part=2 offset=14
+00:07:17.670 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic2 part=5 offset=8
+00:07:17.670 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic1 part=0 offset=20
+00:07:17.671 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic2 part=0 offset=8
+00:07:17.671 [kafka-producer-network-thread | producer-kafka_commit_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic2 part=0 offset=9
+00:07:17.679 [kotlinx.coroutines.DefaultExecutor] INFO  r.g.o.k.hw3transactional.Producer MDC= - [CommitTransactionalProducer] transaction commited
+00:07:17.696 [kotlinx.coroutines.DefaultExecutor] INFO  r.g.o.k.hw3transactional.Producer MDC= - [AbortTransactionalProducer] begin transaction
+00:07:17.831 [kafka-producer-network-thread | producer-kafka_abort_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic2 part=2 offset=8
+00:07:17.831 [kafka-producer-network-thread | producer-kafka_abort_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic1 part=2 offset=16
+00:07:17.831 [kafka-producer-network-thread | producer-kafka_abort_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic1 part=2 offset=17
+00:07:17.836 [kafka-producer-network-thread | producer-kafka_abort_producer_tr_id] INFO  r.g.o.k.h.LoggingCallback MDC= - sent topic=topic2 part=4 offset=0
+00:07:27.824 [kotlinx.coroutines.DefaultExecutor] WARN  r.g.o.k.hw3transactional.Producer MDC= - [AbortTransactionalProducer] aborting transaction
+00:07:27.847 [kotlinx.coroutines.DefaultExecutor] WARN  r.g.o.k.hw3transactional.Producer MDC= - [AbortTransactionalProducer] transaction aborted
+00:07:53.233 [DefaultDispatcher-worker-2] WARN  r.g.o.k.h.LoggingConsumerRebalanceListener MDC= - Rebalance assigned [topic1-0, topic1-1, topic1-2, topic2-0, topic2-1, topic2-2, topic2-3, topic2-4, topic2-5]
+00:07:53.233 [DefaultDispatcher-worker-1] WARN  r.g.o.k.h.LoggingConsumerRebalanceListener MDC= - Rebalance assigned [topic1-0, topic1-1, topic1-2, topic2-0, topic2-1, topic2-2, topic2-3, topic2-4, topic2-5]
+00:07:53.299 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic1-1 c2 com_value2
+00:07:53.299 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic2-4 u14 unc_value14
+00:07:53.299 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic2-1 c6 com_value6
+00:07:53.299 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic1-2 c1 com_value1
+00:07:53.299 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic1-2 c3 com_value3
+00:07:53.299 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic1-2 c4 com_value4
+00:07:53.299 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic2-3 c8 com_value8
+00:07:53.299 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic2-5 c7 com_value7
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic2-2 u13 unc_value13
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic1-1 c2 com_value2
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic2-1 c6 com_value6
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic1-2 c1 com_value1
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic1-2 c3 com_value3
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic1-2 c4 com_value4
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic1-2 u11 unc_value11
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic1-2 u12 unc_value12
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic2-3 c8 com_value8
+00:07:53.304 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic2-5 c7 com_value7
+00:07:53.801 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic1-0 c5 com_value5
+00:07:53.801 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic2-0 c9 com_value9
+00:07:53.801 [DefaultDispatcher-worker-2] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadUncommitedConsumer] received topic2-0 c0 com_value0
+00:07:53.802 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic1-0 c5 com_value5
+00:07:53.802 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic2-0 c9 com_value9
+00:07:53.802 [DefaultDispatcher-worker-1] INFO  r.g.o.k.hw3transactional.Consumer MDC= - [ReadCommitedConsumer] received topic2-0 c0 com_value0
