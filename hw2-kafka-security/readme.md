@@ -45,7 +45,7 @@ cat ./docker/secrets/kafka_server_jaas.conf
 Объявим переменные для удобства
 
 ```shell
-export BOOTSTRAP_SERVER=kafka1:19092,kafka2:29092,kafka3:39092
+export BOOTSTRAP_SERVER=kafka1:9092,kafka2:9092,kafka3:9092
 export TOPIC_NAME=otus-events
 export ADMIN_CONFIG=/etc/kafka/secrets/admin-sasl.properties
 export ALICE_CONFIG=/etc/kafka/secrets/alice-sasl.properties
