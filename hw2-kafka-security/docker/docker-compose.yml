@@ -21,7 +21,7 @@ services:
   kafka1:
     container_name: kafka1
     hostname: kafka1
-    image: confluentinc/cp-kafka
+    image: confluentinc/cp-kafka:latest
     networks:
       default:
         aliases:
@@ -34,11 +34,11 @@ services:
       <<: *common-variables
       KAFKA_NODE_ID: 1
       KAFKA_LISTENERS: 'INTERNAL://:9092,EXTERNAL://:19092,CONTROLLER://:9093'
-      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://:9092,EXTERNAL://localhost:19092'
+      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://:9092,EXTERNAL://kafka1:19092'
   kafka2:
     container_name: kafka2
     hostname: kafka2
-    image: confluentinc/cp-kafka
+    image: confluentinc/cp-kafka:latest
     networks:
       default:
         aliases:
@@ -51,11 +51,11 @@ services:
       <<: *common-variables
       KAFKA_NODE_ID: 2
       KAFKA_LISTENERS: 'INTERNAL://:9092,EXTERNAL://:29092,CONTROLLER://:9093'
-      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://:9092,EXTERNAL://localhost:29092'
+      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://:9092,EXTERNAL://kafka2:29092'
   kafka3:
     container_name: kafka3
     hostname: kafka3
-    image: confluentinc/cp-kafka
+    image: confluentinc/cp-kafka:latest
     networks:
       default:
         aliases:
@@ -68,4 +68,4 @@ services:
       <<: *common-variables
       KAFKA_NODE_ID: 3
       KAFKA_LISTENERS: 'INTERNAL://:9092,EXTERNAL://:39092,CONTROLLER://:9093'
-      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://:9092,EXTERNAL://localhost:39092'
+      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://:9092,EXTERNAL://kafka3:39092'
