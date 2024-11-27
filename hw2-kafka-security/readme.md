@@ -56,7 +56,19 @@ export CHUCK_CONFIG=/etc/kafka/secrets/chuck-sasl.properties
 #### Создаем топик otus-events
 
 ```shell
-docker exec kafka1 kafka-topics --create --topic $TOPIC_NAME --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG 
+docker exec kafka1 kafka-topics --create --topic ${TOPIC_NAME}3 --partitions 3 --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG 
+```
+```shell
+docker exec kafka1 kafka-topics --describe --topic ${TOPIC_NAME}3  --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG 
+```
+```shell
+docker exec kafka1 kafka-topics --alter --topic ${TOPIC_NAME}3 --partitions 6 --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG 
+```
+```shell
+docker exec kafka1 kafka-topics --create --topic ${TOPIC_NAME}4 --partitions 6 --replication-factor 3 --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG 
+```
+```shell
+docker exec kafka1 kafka-topics --describe --topic ${TOPIC_NAME}4  --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG 
 ```
 
 ![create_topic.png](img/create_topic.png)
@@ -80,14 +92,14 @@ docker exec kafka1 kafka-acls --add --allow-principal User:alice --operation Wri
 #### Выдаем права Bob на READ
 
 ```shell
-docker exec kafka1 kafka-acls --add --allow-principal User:bob --group console-consumer-group --operation Read --topic $TOPIC_NAME --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG
+docker exec kafka1 kafka-acls --add --allow-principal User:bob --group console-consumer-group2 --operation Read --topic $TOPIC_NAME --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG
 ```
 
 ![read_to_bob.png](img/read_to_bob.png)
 
 #### Пользователь Chuck остается без прав
 
-#### Проверяем список полномочий
+#### Проверяем список полномочий[readme.md](readme.md)
 
 ```shell
 docker exec kafka1 kafka-acls --list --bootstrap-server $BOOTSTRAP_SERVER --command-config $ADMIN_CONFIG 
@@ -112,7 +124,7 @@ docker exec kafka1 kafka-topics --list --bootstrap-server $BOOTSTRAP_SERVER --co
 ```shell
 docker exec -i kafka2 kafka-console-producer --topic $TOPIC_NAME --bootstrap-server $BOOTSTRAP_SERVER --producer.config $ALICE_CONFIG
 ```
-
+ 
 ![alice_produce.png](img/alice_produce.png)
 
 #### Прочитать сообщения
