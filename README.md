@@ -4,3 +4,4 @@
 2. безопасность kafka
 3. транзакции kafka
 4. kafka streams
+5. akka
